@@ -1,0 +1,17 @@
+#!/bin/bash
+# compile debug
+
+
+#g++ -std=c++20 -Wall -Wextra -Wno-non-template-friend -pedantic -Werror -fsanitize=address,undefined -O0  main.cpp -o __run__ -lgmp -lgmpxx
+g++ -std=c++20  -fwhole-program -march=native -O2  "$1" -o __run__
+
+endl=""
+args=""
+
+if test -f __run__
+then
+echo "It COMPILES! MUAHAHAHAHAHAHA"
+chmod 777 __run__
+./__run__
+rm __run__;
+fi
